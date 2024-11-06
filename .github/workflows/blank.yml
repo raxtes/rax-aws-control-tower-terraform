@@ -19,12 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Terraform
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: '1.4.0'  # Specify your desired Terraform version
-
       # Set up AWS Credentials (Securely use GitHub Secrets)
       - name: Set up AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -32,6 +26,20 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: 'us-east-1'  # Specify your AWS region
+
+      # Install Terraform (manually on the runner)
+      - name: Install Terraform
+        run: |
+          # Define Terraform version
+          TERRAFORM_VERSION="1.4.0"
+          
+          # Download and install Terraform
+          curl -LO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+          unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
+          
+          # Verify Terraform installation
+          terraform --version
 
       # Initialize Terraform
       - name: Terraform Init

@@ -59,4 +59,5 @@ Control tower controlls behaviour like:
         Behavior:    They alert you or generate reports if something goes wrong, but they do not stop the non-compliant action. (After resource creation)
     
     3. Preventive:  Preventive controls restrict certain actions from being performed by enforcing specific permissions or policies, thereby preventing violations of security or compliance rules.(Prevents users from performing specific actions or risky operations)
-        Behavior:   Preventive controls impose restrictions that stop users from making changes that violate policies. (Action-level)
+        Behavior:   Preventive controls impose restrictions that stop users from making changes that violate policies. (Action-level). 
+    adding new line

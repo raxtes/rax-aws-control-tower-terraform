@@ -3,7 +3,7 @@ name: Create Custom SCP
 on:
   push:
     branches:
-#      - main
+#      - main updated
       - sivaVanga
 #  pull_request:
 #    branches:

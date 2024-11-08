@@ -1,4 +1,4 @@
-name: Create Custom SCP
+name: Create Config Rule
 
 on:
   push:
